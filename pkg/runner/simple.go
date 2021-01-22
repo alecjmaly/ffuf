@@ -114,6 +114,8 @@ func (r *SimpleRunner) Execute(req *ffuf.Request) (ffuf.Response, error) {
 
 	req.Host = httpreq.Host
 	httpreq = httpreq.WithContext(r.config.Context)
+	
+
 	for k, v := range req.Headers {
 		httpreq.Header.Set(k, v)
 	}
@@ -122,7 +124,11 @@ func (r *SimpleRunner) Execute(req *ffuf.Request) (ffuf.Response, error) {
 		rawreq, _ = httputil.DumpRequestOut(httpreq, true)
 	}
 
+	start := time.Now()
 	httpresp, err := r.client.Do(httpreq)
+	elapsed := time.Since(start)
+	
+
 	if err != nil {
 		return ffuf.Response{}, err
 	}
@@ -155,6 +161,8 @@ func (r *SimpleRunner) Execute(req *ffuf.Request) (ffuf.Response, error) {
 	linesSize := len(strings.Split(string(resp.Data), "\n"))
 	resp.ContentWords = int64(wordsSize)
 	resp.ContentLines = int64(linesSize)
+	resp.ResponseTime = int64(elapsed) / 1000000
+	
 
 	return resp, nil
 }

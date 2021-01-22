@@ -379,7 +379,7 @@ func (s *Stdoutput) resultQuiet(resp ffuf.Response) {
 func (s *Stdoutput) resultMultiline(resp ffuf.Response) {
 	var res_hdr, res_str string
 	res_str = "%s%s    * %s: %s\n"
-	res_hdr = fmt.Sprintf("%s[Status: %d, Size: %d, Words: %d, Lines: %d]", TERMINAL_CLEAR_LINE, resp.StatusCode, resp.ContentLength, resp.ContentWords, resp.ContentLines)
+	res_hdr = fmt.Sprintf("%s[Status: %d, Size: %d, Words: %d, Lines: %d, Time: %d]", TERMINAL_CLEAR_LINE, resp.StatusCode, resp.ContentLength, resp.ContentWords, resp.ContentLines, resp.ResponseTime)
 	res_hdr = s.colorize(res_hdr, resp.StatusCode)
 	reslines := ""
 	if s.config.Verbose {
@@ -405,7 +405,7 @@ func (s *Stdoutput) resultMultiline(resp ffuf.Response) {
 }
 
 func (s *Stdoutput) resultNormal(resp ffuf.Response) {
-	res := fmt.Sprintf("%s%-23s [Status: %s, Size: %d, Words: %d, Lines: %d]", TERMINAL_CLEAR_LINE, s.prepareInputsOneLine(resp), s.colorize(fmt.Sprintf("%d", resp.StatusCode), resp.StatusCode), resp.ContentLength, resp.ContentWords, resp.ContentLines)
+	res := fmt.Sprintf("%s%-23s [Status: %s, Size: %d, Words: %d, Lines: %d, Time: %d]", TERMINAL_CLEAR_LINE, s.prepareInputsOneLine(resp), s.colorize(fmt.Sprintf("%d", resp.StatusCode), resp.StatusCode), resp.ContentLength, resp.ContentWords, resp.ContentLines, resp.ResponseTime)
 	fmt.Println(res)
 }
 

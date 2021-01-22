@@ -17,7 +17,7 @@ type Response struct {
 	Request       *Request
 	Raw           string
 	ResultFile    string
-	ResponseTime  float64
+	ResponseTime  int64
 }
 
 // GetRedirectLocation returns the redirect location for a 3xx redirect HTTP response

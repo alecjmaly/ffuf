@@ -14,9 +14,9 @@ const (
   Command line : ` + "`{{.CommandLine}}`" + `
   Time: ` + "{{ .Time }}" + `
 
-  {{ range .Keys }}| {{ . }} {{ end }}| URL | Redirectlocation | Position | Status Code | Content Length | Content Words | Content Lines | ResultFile |
+  {{ range .Keys }}| {{ . }} {{ end }}| URL | Redirectlocation | Position | Status Code | Content Length | Content Words | Content Lines | ResultFile | Response Time | 
   {{ range .Keys }}| :- {{ end }}| :-- | :--------------- | :---- | :------- | :---------- | :------------- | :------------ | :--------- |
-  {{range .Results}}{{ range $keyword, $value := .Input }}| {{ $value | printf "%s" }} {{ end }}| {{ .Url }} | {{ .RedirectLocation }} | {{ .Position }} | {{ .StatusCode }} | {{ .ContentLength }} | {{ .ContentWords }} | {{ .ContentLines }} | {{ .ResultFile }} |
+  {{range .Results}}{{ range $keyword, $value := .Input }}| {{ $value | printf "%s" }} {{ end }}| {{ .Url }} | {{ .RedirectLocation }} | {{ .Position }} | {{ .StatusCode }} | {{ .ContentLength }} | {{ .ContentWords }} | {{ .ContentLines }} | {{ .ResultFile }} | {{ .ResponseTime }} |
   {{end}}` // The template format is not pretty but follows the markdown guide
 )
 

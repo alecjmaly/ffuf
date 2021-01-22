@@ -77,7 +77,8 @@ const (
               <th>Length</th>
               <th>Words</th>
               <th>Lines</th>
-			  <th>Resultfile</th>
+			        <th>Resultfile</th>
+			        <th>ResponseTime</th>
           </tr>
         </thead>
 
@@ -98,6 +99,7 @@ const (
                     <td>{{ $result.ContentWords }}</td>
                     <td>{{ $result.ContentLines }}</td>
                     <td>{{ $result.ResultFile }}</td>
+                    <td>{{ $result.ResponseTime }}</td>
                 </tr>
             {{ end }}
         </tbody>
