@@ -17,6 +17,7 @@ type Response struct {
 	Request       *Request
 	Raw           string
 	ResultFile    string
+	ResponseTime  float64
 }
 
 // GetRedirectLocation returns the redirect location for a 3xx redirect HTTP response
@@ -54,5 +55,6 @@ func NewResponse(httpresp *http.Response, req *Request) Response {
 	resp.Cancelled = false
 	resp.Raw = ""
 	resp.ResultFile = ""
+	resp.ResponseTime = 0
 	return resp
 }
