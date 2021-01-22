@@ -22,7 +22,7 @@ type JsonResult struct {
 	ContentLength    int64             `json:"length"`
 	ContentWords     int64             `json:"words"`
 	ContentLines     int64             `json:"lines"`
-	ResponseTime     int64             `json:"lines"`
+	ResponseTime     int64             `json:"responsetime"`
 	RedirectLocation string            `json:"redirectlocation"`
 	ResultFile       string            `json:"resultfile"`
 	Url              string            `json:"url"`

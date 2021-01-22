@@ -162,7 +162,6 @@ func (r *SimpleRunner) Execute(req *ffuf.Request) (ffuf.Response, error) {
 	resp.ContentWords = int64(wordsSize)
 	resp.ContentLines = int64(linesSize)
 	resp.ResponseTime = int64(elapsed) / 1000000
-	
 
 	return resp, nil
 }
